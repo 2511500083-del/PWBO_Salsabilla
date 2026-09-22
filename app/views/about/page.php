@@ -5,6 +5,6 @@
     <title>Halaman Page</title>
 </head>
 <body>
-    <h1>My Pages Number One</h1>
+    <h1>My Pages</h1>
 </body>
 </html>
