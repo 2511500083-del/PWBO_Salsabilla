@@ -18,6 +18,10 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
 
                         <?php echo $mhs['nama']; ?>
+                        <a href="<?php echo BASEURL; ?>/mahasiswa/hapus/<?php echo $mhs['id']; ?>" 
+                            class="badge badge-danger float-right ml-1" onclick="return confirm('Yakin?');">
+                            Hapus
+                        </a>
 
                         <a href="<?php echo BASEURL; ?>/mahasiswa/detail/<?php echo $mhs['id']; ?>" 
                             class="badge badge-primary">
