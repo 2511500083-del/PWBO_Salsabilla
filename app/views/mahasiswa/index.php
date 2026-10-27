@@ -6,30 +6,43 @@
     </div>
     <div class="row">
         <div class="col-6">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+            <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
                 Tambah Data Mahasiswa
             </button>
             <h3>Daftar Mahasiswa</h3>
 
+            
             <ul class="list-group">
+                <?php foreach ($data['mhs'] as $mhs) : ?>
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
 
-                <?php foreach($data['mhs'] as $mhs) : ?>
+                            <!-- Nama mahasiswa -->
+                            <div class="col-6">
+                                <?= $mhs['nama']; ?>
+                            </div>
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <!-- Tombol Hapus -->
+                            <div class="col-3 text-center">
+                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>"
+                                    class="badge badge-danger"
+                                    onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                    Hapus
+                                </a>
+                            </div>
 
-                        <?php echo $mhs['nama']; ?>
-                        <a href="<?php echo BASEURL; ?>/mahasiswa/hapus/<?php echo $mhs['id']; ?>" 
-                            class="badge badge-danger float-right ml-1" onclick="return confirm('Yakin?');">
-                            Hapus
-                        </a>
-
-                        <a href="<?php echo BASEURL; ?>/mahasiswa/detail/<?php echo $mhs['id']; ?>" 
-                            class="badge badge-primary">
-                            Detail
-                        </a>
+                            <!-- Tombol Detail -->
+                            <div class="col-3 text-right">
+                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>"
+                                    class="badge badge-primary">
+                                    Detail
+                                </a>
+                            </div>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
+
         </div>
     </div>
 </div>
@@ -44,6 +57,8 @@
       </div>
       <div class="modal-body">
         <form action="<?php echo BASEURL;?>/mahasiswa/tambah" method="post">
+            <input type="hidden" name="id" id="id">
+            
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama">

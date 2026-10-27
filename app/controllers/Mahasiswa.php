@@ -50,5 +50,6 @@ class Mahasiswa extends Controller
             exit;
         }
     }
+
 }
 ?>

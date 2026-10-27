@@ -1,5 +1,5 @@
 <?php
-define('BASEURL', 'http://localhost/PWBO_Salsabilla/public/');
+define('BASEURL', 'http://localhost/PWBO_Salsabilla/public');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
